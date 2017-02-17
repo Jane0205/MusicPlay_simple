@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mainscreen"
+            android:layout_marginBottom="100dp"
+            android:id="@+id/imageView2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="400dp"
+            android:orientation="horizontal">
+            <!-- now category -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark">
+
+                <TextView
+                    android:id="@+id/now"
+                    style="@style/CategoryStyle"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="@string/NowPlaying" />
+            </FrameLayout>
+
+            <!-- list category -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark">
+
+                <TextView
+                    android:id="@+id/list"
+                    style="@style/CategoryStyle"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="@string/MusicList" />
+            </FrameLayout>
+
+            <!-- search category -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:background="@color/colorPrimaryDark">
+
+                <TextView
+                    android:id="@+id/search"
+                    style="@style/CategoryStyle"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="@string/Search" />
+            </FrameLayout>
+
+            <!-- today category -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark">
+
+                <TextView
+                    android:id="@+id/today"
+                    style="@style/CategoryStyle"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="@string/TodayRecommend" />
+            </FrameLayout>
+        </LinearLayout>
+
+     </RelativeLayout>
+</LinearLayout>
