@@ -14,7 +14,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/mainscreen"
             android:layout_marginBottom="100dp"
-            android:id="@+id/imageView2"
+            android:id="@+id/mainscreen"
+            android:scaleType="centerCrop"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />

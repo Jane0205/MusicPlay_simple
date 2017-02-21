@@ -10,5 +10,5 @@
     <string name="Search">Search</string>
 
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
-    <string name="TodayRecommend">Today Recommend</string>
+    <string name="TodayRecommend">Today's Recommendations</string>
 </resources>
