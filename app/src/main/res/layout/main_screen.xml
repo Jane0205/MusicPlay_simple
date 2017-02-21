@@ -48,7 +48,7 @@
                 android:background="@color/colorPrimaryDark">
 
                 <TextView
-                    android:id="@+id/list"
+                    android:id="@+id/mlist"
                     style="@style/CategoryStyle"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="@string/MusicList" />

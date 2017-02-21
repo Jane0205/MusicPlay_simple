@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(nowIntent);
             }
         });
-        TextView playlist=(TextView)findViewById(R.id.list);
+        TextView playlist=(TextView)findViewById(R.id.mlist);
 
         playlist.setOnClickListener(new View.OnClickListener(){
             @Override
