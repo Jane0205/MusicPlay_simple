@@ -50,6 +50,10 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         // Get the default translation from the currentWord object and set this text on
         // the default TextView.
         artistTextView.setText(currentMusic.getmartist());
+        TextView genreTextView = (TextView) listItemView.findViewById(R.id.genre);
+        // Get the default translation from the currentWord object and set this text on
+        // the default TextView.
+        genreTextView.setText(currentMusic.getMgenre());
 
         // Find the ImageView in the list_item.xml layout with the ID image.
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
@@ -64,7 +68,7 @@ public class MusicAdapter extends ArrayAdapter<Music> {
             imageView.setVisibility(View.GONE);
         }
         // Set the theme color for the list item
-        View textContainer = listItemView.findViewById(R.id.row);
+        View textContainer = listItemView.findViewById(R.id.playlists);
         // Find the color that the resource ID maps to
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         // Set the background color of the text container View

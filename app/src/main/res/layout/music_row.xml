@@ -10,10 +10,19 @@
         android:id="@+id/image"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:src="@drawable/albumcover"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:id="@+id/playlists"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/image"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
 
         <TextView
             android:id="@+id/title"
@@ -22,11 +31,11 @@
             android:layout_alignTop="@id/image"
             android:layout_toRightOf="@id/image"
             android:layout_marginTop="5dp"
-            android:textAllCaps="true"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
-            tools:text="Make It Work" />
+            android:textStyle="bold"/>
+            <!--tools:text="Make It Work" -->
+
 
         <TextView
             android:id="@+id/artist"
@@ -36,24 +45,24 @@
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/image"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/white"
-            tools:text="Blended Babies" />
+            android:textColor="@android:color/holo_green_light"/>
+            <!--tools:text="Blended Babies" -->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/genre"
-        android:textAllCaps="true"
         android:layout_below="@id/artist"
         android:layout_toRightOf="@id/image"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:text="hiphop"/>
+        android:layout_marginLeft="5dp"/>
+        <!--android:text="HipHop"-->
 
-
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/row"
         android:background="?android:attr/selectableItemBackground"/>
+        <!--android:id="@+id/row"-->
+
 </RelativeLayout>

@@ -17,6 +17,8 @@
         </activity>
         <activity android:name=".nowplaying"/>
         <activity android:name=".playlist"/>
+        <activity android:name=".search"/>
+        <activity android:name=".todays"/>
     </application>
 
 </manifest>

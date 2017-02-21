@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(playlistIntent);
             }
         });
-        TextView search=(TextView)findViewById(R.id.search);
+        TextView searchs=(TextView)findViewById(R.id.searchs);
 
-        search.setOnClickListener(new View.OnClickListener(){
+        searchs.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent searchIntent = new Intent(MainActivity.this,search.class);
-                startActivity(searchIntent);
+                Intent searchsIntent = new Intent(MainActivity.this,search.class);
+                startActivity(searchsIntent);
             }
         });
         TextView today=(TextView)findViewById(R.id.today);

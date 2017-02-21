@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark">
+                android:background="@color/coverback">
 
                 <TextView
                     android:id="@+id/now"
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark">
+                android:background="#006400">
 
                 <TextView
                     android:id="@+id/mlist"
@@ -59,11 +59,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-
-                android:background="@color/colorPrimaryDark">
+                android:background="#191970">
 
                 <TextView
-                    android:id="@+id/search"
+                    android:id="@+id/searchs"
                     style="@style/CategoryStyle"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="@string/Search" />
@@ -74,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark">
+                android:background="#008080">
 
                 <TextView
                     android:id="@+id/today"

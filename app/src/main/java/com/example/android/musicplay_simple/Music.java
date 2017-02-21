@@ -7,6 +7,7 @@ package com.example.android.musicplay_simple;
 public class Music {
     private String mtitle;
     private String martist;
+    private String mgenre;
 
     private int mAudioResourceId;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
@@ -14,18 +15,19 @@ public class Music {
     private static final int NO_IMAGE_PROVIDED = -1;
 
 
-    public Music(String title, String artist, int imageResourceId,int audioResourceId) {
+    public Music(String title, String artist,String genre, int imageResourceId,int audioResourceId) {
         mtitle = title;
         martist = artist;
+        mgenre = genre;
         mImageResourceId = imageResourceId;
         mAudioResourceId = audioResourceId;
 
     }
 
-    public Music(String title, String artist) {
+    public Music(String title,String artist, int imageResourceId) {
         mtitle = title;
         martist = artist;
-
+        mImageResourceId = imageResourceId;
     }
 
     public String getmtitle() {
@@ -35,6 +37,8 @@ public class Music {
     public String getmartist() {
         return martist;
     }
+
+    public String getMgenre(){return mgenre;}
 
     public int getImageResourceId() {
         return mImageResourceId;

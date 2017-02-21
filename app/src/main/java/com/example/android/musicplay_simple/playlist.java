@@ -20,6 +20,15 @@ public class playlist extends AppCompatActivity{
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
 
+    private MediaPlayer.OnCompletionListener mCompletionListener =
+            new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    // Now that the sound file has finished playing, release the media player resources.
+                    releaseMediaPlayer();
+                }
+            };
+
     private AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener =
             new AudioManager.OnAudioFocusChangeListener() {
                 @Override
@@ -46,14 +55,7 @@ public class playlist extends AppCompatActivity{
                 }
             };
 
-    private MediaPlayer.OnCompletionListener mCompletionListener =
-            new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    // Now that the sound file has finished playing, release the media player resources.
-                    releaseMediaPlayer();
-                }
-            };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,16 +66,19 @@ public class playlist extends AppCompatActivity{
 
         // Create a list of words
         final ArrayList<Music> musics = new ArrayList<Music>();
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("make it work", "baby", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Make It Work", "Blended Babies","HipHop", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("My Fucking Valentine", "Gerry Mulligan","Jazz", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Lil Bit", "Dej Loaf","HipHop", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("No Diggity", "Black Street","R&B", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Young Wild & Free(feat.Bruno Mars)", "Snoop Dogg","HipHop", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Let me Love you", "Mario","R&B", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("All day", "Kanye West","HipHop", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("L-O-V-E", "Nat King Cole","Jazz", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("I Will Rise", "Chris Tomlin","Christian", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Beachin'", "Jake Owen","Country", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Fat Cat", "Nick Vila","Jazz", R.drawable.albumcover, R.raw.song));
 
-        MusicAdapter adapter = new MusicAdapter(this,musics,R.color.colorAccent);
+        MusicAdapter adapter = new MusicAdapter(this,musics,R.color.playlist);
 
         ListView listView = (ListView) findViewById(R.id.list);
 

@@ -17,9 +17,17 @@ import java.util.ArrayList;
 
 public class todays extends AppCompatActivity {
 
-
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
+
+    private MediaPlayer.OnCompletionListener mCompletionListener =
+            new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    // Now that the sound file has finished playing, release the media player resources.
+                    releaseMediaPlayer();
+                }
+            };
 
     private AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener =
             new AudioManager.OnAudioFocusChangeListener() {
@@ -47,14 +55,8 @@ public class todays extends AppCompatActivity {
                 }
             };
 
-    private MediaPlayer.OnCompletionListener mCompletionListener =
-            new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    // Now that the sound file has finished playing, release the media player resources.
-                    releaseMediaPlayer();
-                }
-            };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,58 +67,41 @@ public class todays extends AppCompatActivity {
 
         // Create a list of words
         final ArrayList<Music> musics = new ArrayList<Music>();
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
-        musics.add(new Music("todays recommand playlist", "hiphop", R.drawable.albumcover, R.raw.song));
+        musics.add(new Music("Today's HipHop Recommendations", "340K", R.drawable.albumcover));
+        musics.add(new Music("Today's Jazz Recommendations", "20M", R.drawable.albumcover));
+        musics.add(new Music("Today's R&B Recommendations", "3k", R.drawable.albumcover));
+        musics.add(new Music("Today's Rock Recommendations", "1.2M", R.drawable.albumcover));
+        musics.add(new Music("Today's Dance Recommendations", "300", R.drawable.albumcover));
+        musics.add(new Music("Today's Classic Recommendations", "57", R.drawable.albumcover));
+        musics.add(new Music("Today's Country Recommendations", "890", R.drawable.albumcover));
+        musics.add(new Music("Today's Indie Recommendations", "2k", R.drawable.albumcover));
+        musics.add(new Music("Today's Christian Recommendations", "100K", R.drawable.albumcover));
 
 
-        // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
-        // adapter knows how to create list items for each item in the list.
-        MusicAdapter adapter = new MusicAdapter(this,musics,R.color.colorAccent);
 
-        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
-        // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // word_list.xml layout file.
+        MusicAdapter adapter = new MusicAdapter(this, musics,R.color.recommandations);
+
         ListView listView = (ListView) findViewById(R.id.list);
 
-        // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
-        // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
-        // Set a click listener to play the audio when the list item is clicked on
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Release the media player if it currently exists because we are about to
-                // play a different sound file
                 releaseMediaPlayer();
 
-                // Get the {@link Word} object at the given position the user clicked on
                 Music music = musics.get(position);
 
-                // Request audio focus so in order to play the audio file. The app needs to play a
-                // short audio file, so we will request audio focus with a short amount of time
-                // with AUDIOFOCUS_GAIN_TRANSIENT.
                 int result = audioManager.requestAudioFocus(onAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    // We have audio focus now.
 
-                    // Create and setup the {@link MediaPlayer} for the audio resource associated
-                    // with the current word
-                    mediaPlayer = MediaPlayer.create(todays.this,music.getAudioResourceId());
+                    mediaPlayer = MediaPlayer.create(todays.this, music.getAudioResourceId());
 
-                    // Start the audio file
+
                     mediaPlayer.start();
 
-                    // Setup a listener on the media player, so that we can stop and release the
-                    // media player once the sound has finished playing.
                     mediaPlayer.setOnCompletionListener(mCompletionListener);
                 }
             }
